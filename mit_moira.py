@@ -32,7 +32,7 @@ class Moira(object):
         # No idea what `proxy_id` is, but many actions in the API require one.
         self.proxy_id = proxy_id
 
-    def user_memberships(self, username):
+    def user_lists(self, username):
         """
         Look up all the lists that the user is a member of.
 
@@ -40,9 +40,29 @@ class Moira(object):
             username (str): The MIT username of the user
 
         Returns:
-            list of strings: names of the lists that this user is a member of.
+            list of strings: names of the lists that this user is a member of
         """
         return self.client.service.getUserLists(username, "USER", self.proxy_id)
+
+    def list_members(self, name, type="USER", recurse=True, max_results=1000):
+        """
+        Look up all the members of a list.
+
+        Args:
+            name (str): The name of the list
+            type (str): The type of results to return. "USER" to get users,
+                "LIST" to get lists.
+            recurse (bool): Presumably, whether to recurse into member lists
+                when retrieving users.
+            max_results (int): Maximum number of results to return.
+
+        Returns:
+            list of strings: names of the members of the list
+        """
+        results = self.client.service.getListMembership(
+            name, type, recurse, max_results, self.proxy_id,
+        )
+        return [item["member"] for item in results]
 
     def list_attributes(self, name):
         """
