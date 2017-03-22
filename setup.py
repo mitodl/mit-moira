@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="mit-moira",
-    version="0.0.1",
+    version="0.0.2",
     description="Python client for accessing MIT's Moira system",
     long_description=open('README.rst').read(),
     url="https://github.com/mitodl/mit-moira",
