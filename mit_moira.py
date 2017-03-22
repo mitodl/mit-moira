@@ -27,6 +27,7 @@ class Moira(object):
     def __init__(self, cert_path, key_path, proxy_id=""):
         transport = Transport()
         transport.session.cert = (cert_path, key_path)
+        #: An instance of :class:`zeep.Client`
         self.client = Client(WSDL_URL, transport=transport)
         # No idea what `proxy_id` is, but many actions in the API require one.
         self.proxy_id = proxy_id
