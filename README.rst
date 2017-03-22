@@ -1,11 +1,19 @@
-mit_moira
+MIT Moira
 =========
 
 A Python library for accessing MIT's Moira_ system.
-This library uses the SOAP API, which has a few unusual limitations, and
+This library uses the SOAP_ API, which has a few unusual limitations, and
 requires X.509 client certificates for access.
 
 .. _Moira: http://kb.mit.edu/confluence/display/istcontrib/Moira+Overview
+.. _SOAP: https://en.wikipedia.org/wiki/SOAP
+
+Installation
+------------
+
+.. code-block:: bash
+
+    pip install mit-moira
 
 Usage
 -----

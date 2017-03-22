@@ -152,21 +152,21 @@ class Moira(object):
             new_name (str): If you wish to change the name of the list,
                 set it here. Otherwise, the name will remain the same.
             description (str): A short description of this list
-            is_active (bool): Should the new list be active?
+            is_active (bool): Should the list be active?
                 An inactive list cannot be used.
-            is_public (bool): Should the new list be public?
+            is_public (bool): Should the list be public?
                 If a list is public, anyone may join without requesting
                 permission. If not, the owners control entry to the list.
-            is_hidden (bool): Should the new list be hidden?
+            is_hidden (bool): Should the list be hidden?
                 Presumably, a hidden list doesn't show up in search queries.
             is_group (bool): Something about AFS?
-            is_nfs_group (bool): Presumably, create an
+            is_nfs_group (bool): Presumably, have an
                 `NFS group <https://en.wikipedia.org/wiki/Network_File_System>`_
                 for this group? I don't actually know what this does.
-            is_mail_list (bool): Presumably, create a mailing list.
-            use_mailman (bool): Presumably, use
+            is_mail_list (bool): Presumably, have a mailing list.
+            use_mailman (bool): Presumably, have
                 `GNU Mailman <https://en.wikipedia.org/wiki/GNU_Mailman>`_
-                to manage the mailing list.
+                manage the mailing list.
             mailman_server (str): The Mailman server to use, if ``use_mailman``
                 is True.
         """
