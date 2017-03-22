@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 setup(
     name="mit-moira",
     version="0.0.1",
-    description="Library to access MIT's Moira service",
+    description="Python client for accessing MIT's Moira system",
     long_description=open('README.rst').read(),
     url="https://github.com/mitodl/mit-moira",
     author="MIT Office of Digital Learning",
