@@ -1,4 +1,4 @@
-mit_moira
+MIT Moira
 =========
 
 .. automodule:: mit_moira

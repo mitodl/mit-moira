@@ -1,6 +1,6 @@
 """
-A Python library for accessing MIT's Moira_ system.
-This library uses the SOAP_ API, which has a few unusual limitations, and
+Python client for accessing MIT's Moira_ system.
+This client uses the SOAP_ API, which has a few unusual limitations, and
 requires X.509 client certificates for access.
 
 .. _Moira: http://kb.mit.edu/confluence/display/istcontrib/Moira+Overview
