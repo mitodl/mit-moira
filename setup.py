@@ -8,6 +8,7 @@ setup(
     version="0.0.1",
     description="Library to access MIT's Moira service",
     long_description=open('README.rst').read(),
+    url="https://github.com/mitodl/mit-moira",
     author="MIT Office of Digital Learning",
     author_email="odl@mit.edu",
     packages=find_packages(),
