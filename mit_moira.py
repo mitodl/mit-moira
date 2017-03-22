@@ -87,7 +87,7 @@ class Moira(object):
         )
 
     def create_list(
-        self, name, description="Created by mit_moira library",
+        self, name, description="Created by mit_moira client",
         is_active=True, is_public=True, is_hidden=True,
         is_group=False, is_nfs_group=False,
         is_mail_list=False, use_mailman=False, mailman_server=""
@@ -139,7 +139,7 @@ class Moira(object):
         return self.client.service.createList(attrs, self.proxy_id)
 
     def update_list(
-        self, name, new_name=None, description="Updated by mit_moira library",
+        self, name, new_name=None, description="Updated by mit_moira client",
         is_active=True, is_public=True, is_hidden=True,
         is_group=False, is_nfs_group=False,
         is_mail_list=False, use_mailman=False, mailman_server=""
