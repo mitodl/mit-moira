@@ -8,11 +8,17 @@ setup(
     version="0.0.1",
     description="Library to access MIT's Moira service",
     long_description=open('README.rst').read(),
-    author="David Baumgold",
-    author_email="david@davidbaumgold.com",
+    author="MIT Office of Digital Learning",
+    author_email="odl@mit.edu",
     packages=find_packages(),
+    py_modules=['mit_moira'],
     install_requires=[
         "zeep"
     ],
-    license='MIT',
+    license='BSD',
+    classifiers=[
+        "License :: OSI Approved :: BSD License",
+        "Programming Language :: Python :: 3",
+        "Topic :: Internet",
+    ]
 )
