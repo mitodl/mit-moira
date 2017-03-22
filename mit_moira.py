@@ -31,7 +31,7 @@ class Moira(object):
         # No idea what `proxy_id` is, but many actions in the API require one.
         self.proxy_id = proxy_id
 
-    def list_memberships(self, username):
+    def user_memberships(self, username):
         """
         Look up all the lists that the user is a member of.
 
