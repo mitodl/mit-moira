@@ -9,7 +9,7 @@ requires X.509 client certificates for access.
 
 from zeep import Client, Transport
 
-WSDL_URL = "https://ws-dev.mit.edu/moiraws/services/moira?wsdl"
+WSDL_URL = "https://moiraws.mit.edu/moiraws/services/moira?wsdl"
 
 
 class Moira(object):
@@ -23,26 +23,28 @@ class Moira(object):
         key_path (str): The path to an X.509 private key file
         proxy_id (str): Used in many API calls. Do not set this
             unless you know what you're doing.
+        url(str): The WSDL URL to connect to.
     """
-    def __init__(self, cert_path, key_path, proxy_id=""):
+    def __init__(self, cert_path, key_path, proxy_id="", url=WSDL_URL):
         transport = Transport()
         transport.session.cert = (cert_path, key_path)
         #: An instance of :class:`zeep.Client`
-        self.client = Client(WSDL_URL, transport=transport)
+        self.client = Client(url, transport=transport)
         # No idea what `proxy_id` is, but many actions in the API require one.
         self.proxy_id = proxy_id
 
-    def user_lists(self, username):
+    def user_lists(self, username, member_type="USER"):
         """
         Look up all the lists that the user is a member of.
 
         Args:
             username (str): The MIT username of the user
+            member_type(str): The type of user, "USER" or "STRING"
 
         Returns:
             list of strings: names of the lists that this user is a member of
         """
-        return self.client.service.getUserLists(username, "USER", self.proxy_id)
+        return self.client.service.getUserLists(username, member_type, self.proxy_id)
 
     def list_members(self, name, type="USER", recurse=True, max_results=1000):
         """
