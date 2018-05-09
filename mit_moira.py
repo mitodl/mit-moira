@@ -46,6 +46,36 @@ class Moira(object):
         """
         return self.client.service.getUserLists(username, member_type, self.proxy_id)
 
+    def user_list_membership(self, username, member_type="USER",
+                             recursive=True, max_return_count=999):
+        """
+        Get info for lists a user is a member of.
+
+        This is similar to :meth:`user_lists` but with a few differences:
+
+            #. It returns list info objects instead of list names.
+            #. It has an option to fully resolve a user's list hierarchy. That
+               is, if a user is a member of a nested list, this method can
+               retrieve both the nested list and the parent lists that contain
+               the nested list.
+
+        Args:
+            username (str): The MIT username of the user
+            member_type(str): The type of user, "USER" or "STRING"
+            recursive(bool): Whether to fully resolve the list hierarchy
+            max_return_count(int): limit the number of items returned
+
+        Returns:
+            list of dicts: info dicts, one per list.
+        """
+        return self.client.service.getUserListMembership(
+            username,
+            member_type,
+            recursive,
+            max_return_count,
+            self.proxy_id
+        )
+
     def list_members(self, name, type="USER", recurse=True, max_results=1000):
         """
         Look up all the members of a list.
